@@ -1,0 +1,86 @@
+<h1 style=
+"color: #333; 
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+margin: 20px; ">Cardapio</h1>
+<style>
+    body{
+        margin: 0 
+    }
+</style>
+
+{{#if produtos}}
+    <table style="
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    ">
+        <thead>
+            <tr style="background-color: #f0f0f0; color: #333; text-align: left;">
+                <th style="padding: 12px 15px;">Produto</th>
+                <th style="padding: 12px 15px;">Preço</th>
+                <th style="padding: 12px 15px;">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each produtos}}
+            <tr style=
+            "border-bottom: 1px solid #eee; 
+            transition: background 0.3s;" onmouseover="this.style.backgroundColor='#f1f7ff'" onmouseout="this.style.backgroundColor='white'">
+                <td style="padding: 12px 15px;">{{nome}}</td>
+                <td style="padding: 12px 15px;">R$ {{preco}}</td>
+                <td style="padding: 12px 15px;">
+                    <a href="/produtos/edit/{{id}}" style="
+                        display: inline-block;
+                        padding: 6px 12px;
+                        background-color: #ffc107;
+                        color: #333;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        margin-right: 5px;
+                        font-weight: 500;
+                        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                    ">Editar</a>
+
+                    <form action="/produtos/delete/{{id}}" method="POST" style="display:inline;">
+                        <input type="hidden" name="id" value="{{id}}">
+                        <button type="submit" style="
+                            display: inline-block;
+                            padding: 6px 12px;
+                            background-color: #dc3545;
+                            color: white;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            font-weight: 500;
+                            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                        " onclick="return confirm('Tem certeza que deseja excluir este produto?')">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #777; margin: 20px; ">Nenhum produto cadastrado.</p>
+{{/if}}
+
+<p>
+    <a href="/produtos/new" style="
+        display: inline-block;
+        padding: 10px 18px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0px 20px"
+        >Adicionar Novo Produto</a>
+</p>

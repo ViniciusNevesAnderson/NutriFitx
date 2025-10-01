@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Produtos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+            color: #333;
+            font-weight: bold;
+        }
+        tr:nth-child(even) td {
+            background-color: #fafafa;
+        }
+        tr:hover td {
+            background-color: #f1f7ff;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: 500;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 20px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+            border-bottom: 2px solid #ffcc00;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+  <li><a href="/">Início</a></li>
+  <li><a href="/produtos">Cardapio</a></li>
+  <li><a href="/faleConosco">Fale-Conosco</a></li>
+  <li><a href="/reserva">Reserva</a></li>
+    </ul>
+</nav>
+    {{{body}}}
+</body>
+</html>

@@ -1,0 +1,95 @@
+<h1 style="
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+">Editar Mensagem: {{mensagem.nome}}</h1>
+
+<style>
+    body{
+        margin: 0 
+    }
+</style>
+
+<form action="/faleConosco/edit/{{mensagem.id}}" method="POST" style="
+    max-width: 400px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+">
+
+    <label for="nome" style="display: block; margin-bottom: 5px; color: #555;">Nome:</label>
+    <input type="text" id="nome" name="nome" value="{{mensagem.nome}}" required style="
+        width: 80%;
+        padding: 8px 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    ">
+
+    <label for="data" style="display: block; margin-bottom: 5px; color: #555;">Data:</label>
+    <input type="date" id="data" name="data" value="{{mensagem.data}}" required style="
+        width: 80%;
+        padding: 8px 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    ">
+
+    <label for="email" style="display: block; margin-bottom: 5px; color: #555;">E-mail:</label>
+    <input type="email" id="email" name="email" value="{{mensagem.email}}" required style="
+        width: 80%;
+        padding: 8px 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    ">
+
+    <label for="mensagem" style="display: block; margin-bottom: 5px; color: #555;">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem" required rows="5" style="
+        width: 80%;
+        padding: 8px 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    ">{{mensagem.mensagem}}</textarea>
+
+    <button type="submit" style="
+        padding: 10px 16px;
+        background-color: #ffc107;
+        color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        width: fit-content;
+    ">Salvar</button>
+
+    <a href="/faleConosco" style="
+        margin-top: 10px;
+        padding: 10px 16px;
+        background-color: #6c757d;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        width: fit-content;
+    ">Cancelar</a>
+</form>
+
+<p style="
+    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+">
+    <a href="/faleConosco" style="
+        color: #007BFF;
+        text-decoration: none;
+    ">Voltar para a lista de mensagens</a>
+</p>
+
