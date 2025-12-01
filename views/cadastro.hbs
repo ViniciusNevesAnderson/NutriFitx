@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="/style.css">
+
+<header>
+    <h1 id="titulo">NutriFitx</h1>
+</header>
+
+<main class="auth-container">
+    <div class="auth-box">
+        <h2>Cadastro</h2>
+
+        {{#if error}}
+            <p class="error">{{error}}</p>
+        {{/if}}
+
+        {{#if success}}
+            <p class="success">{{success}}</p>
+        {{/if}}
+
+        <form action="/cadastro" method="POST" onsubmit="return validarTermos()">
+            <div class="input-group">
+                <input type="text" name="nome" placeholder="Nome completo" required>
+            </div>
+
+            <div class="input-group">
+                <input type="text" name="usuario" placeholder="Usuário" required>
+            </div>
+
+            <div class="input-group">
+                <input type="email" name="email" placeholder="E-mail" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="senha" placeholder="Senha" required>
+            </div>
+
+            <div class="termos">
+                <label>
+                    <input type="checkbox" id="termos" name="termos" required>
+                    Aceito os <a href="#" id="abrir-termos">termos de uso</a>
+                </label>
+            </div>
+
+            <button type="submit" id="botao-cadastro" disabled>Cadastrar</button>
+        </form>
+
+        <p class="link-login">
+            Já tem conta? <a href="/login">Faça login</a>
+        </p>
+    </div>
+</main>
+
+<div id="modal-termos" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" id="fechar-termos">&times;</span>
+        <h3>Termos de Uso - NutriFitx</h3>
+        <p>Ao se cadastrar na plataforma NutriFitx, você concorda com os seguintes termos:</p>
+        <ul>
+            <li>Seus dados serão utilizados apenas para personalizar sua experiência e melhorar seu desempenho.</li>
+            <li>Você é responsável pelas informações fornecidas durante o cadastro.</li>
+            <li>O uso indevido do sistema pode levar ao bloqueio da conta.</li>
+            <li>O NutriFitx pode atualizar estes termos periodicamente.</li>
+            <li>A idade mínima recomendada para se cadastrar é de 14 anos, sendo de total responsabilidade do usuário.</li>
+            <li>Usuários com 60 anos ou mais devem sempre buscar auxílio de outra pessoa, garantindo segurança e acompanhamento adequado, principalmente se tratando da parte dos treinamentos, para evitar o risco de lesões.</li>
+        </ul>
+        <p>Ao marcar “Aceito os termos”, você confirma que leu e concorda com todas as condições descritas.</p>
+        <button id="botao-fechar" class="btn">Fechar</button>
+    </div>
+</div>
+
+<script>
+    const abrir = document.getElementById('abrir-termos');
+    const fechar = document.getElementById('fechar-termos');
+    const modal = document.getElementById('modal-termos');
+    const botaoFechar = document.getElementById('botao-fechar');
+    const checkbox = document.getElementById('termos');
+    const botaoCadastro = document.getElementById('botao-cadastro');
+
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            botaoCadastro.removeAttribute('disabled');
+        } else {
+            botaoCadastro.setAttribute('disabled', 'disabled');
+        }
+    });
+
+    abrir.addEventListener('click', (event) => {
+        event.preventDefault();
+        modal.style.display = 'flex';
+    });
+
+    fechar.addEventListener('click', () => modal.style.display = 'none');
+    botaoFechar.addEventListener('click', () => modal.style.display = 'none');
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) modal.style.display = 'none';
+    });
+
+    function validarTermos() {
+        if (!checkbox.checked) {
+            alert("Você precisa aceitar os termos de uso para continuar.");
+            return false;
+        }
+        return true;
+    }
+</script>

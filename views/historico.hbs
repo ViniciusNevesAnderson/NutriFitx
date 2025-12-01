@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/style.css">
+
+<main class="container">
+  <h1>Histórico de Metas</h1>
+  <p>Aqui você pode acompanhar todos os objetivos que você já teve.</p>
+
+  {{#if metas.length}}
+  {{#each metas}}
+    <div class="card">
+      <h3>Meta: {{nome}}</h3>
+      <p><strong>Duração:</strong> {{duracao}} semana(s)</p>
+      <p><strong>Status:</strong> <span class="status {{statusClass status}}">{{status}}</span></p>
+    </div>
+  {{/each}}
+{{else}}
+  <p>Nenhum objetivo registrado ainda.</p>
+{{/if}}
+
+</main>
+

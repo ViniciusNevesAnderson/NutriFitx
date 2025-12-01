@@ -1,0 +1,100 @@
+{{#if objetivoSelecionado}}
+    <section class="objetivos-box">
+        <p><b>Olá {{usuario}}!</b></p>
+        <p>Seu objetivo atual é: <b>{{objetivoSelecionado}}</b></p>
+
+        {{#if peso}}
+            <p>Dados: <b>{{peso}} kg</b> / <b>{{altura}} cm</b></p>
+        {{/if}}
+
+        {{#if imc}}
+            <p>Seu IMC é: <b class="tag blue">{{imc}}</b></p>
+        {{/if}}
+        <p>Status: <b>{{status}}</b></p>
+
+        {{#ifEquals status "Em andamento"}}
+            <div id="botao-dieta-container"></div>
+            <a href="/treinos" class="btn">Ir para Treinos</a>
+            <a href="/historico" class="btn">Ver Histórico</a>
+        {{else}}
+            <form action="/objetivos/personalizar" method="GET">
+                <button type="submit" class="btn">Criar Novo Objetivo</button>
+            </form>
+        {{/ifEquals}}
+    </section>
+{{else}}
+    <section class="objetivos-box">
+        <h2>Bem Vindo, {{usuario}}!</h2>
+        <h2>Criar Objetivo</h2>
+        <p>Escolha e se divirta com dietas e treinos personalizados!</p>
+        
+        <form action="/objetivos/personalizar" method="GET">
+            <button type="submit" class="btn">Criar Objetivo</button>
+        </form>
+    </section>
+{{/if}}
+ <section class="objetivos-box">
+        <h2>Acompanhar Resultado</h2>
+        <p>Conforme o tempo passa, aqui voce pode calcular um novo IMC para acompanhar como esta sendo seu desempenho, além de comparar seus resultados com seu IMC inicial!</p><br>
+        <p><strong>Ganho de Massa Magra:</strong> Um aumento gradual do IMC pode indicar que você está ganhando músculos de forma saudável. O foco do treino é na hipertrofia e a dieta é rica em proteínas e calorias adequadas.<br><br>
+        <strong>Emagrecimento: </strong> Uma redução do IMC ao longo do tempo geralmente reflete a perda de gordura corporal, especialmente quando combinada com treinos de resistência e cardio e uma dieta equilibrada com déficit calórico.<br><br>
+        <strong>Controle da Saúde Corporal: </strong> O IMC ajuda a monitorar se você mantém um peso estável dentro da faixa saudável. Treinos leves e uma alimentação balanceada ajudam a prevenir alterações significativas no IMC, promovendo saúde geral e manutenção do condicionamento físico.</p>
+        
+        <div class="container">
+            <h2>Calculadora de IMC</h2>
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" placeholder="Ex: 70" style="width: 10%">
+
+            <label for="altura">Altura (m):</label>
+            <input type="number" step="0.01" id="altura" placeholder="Ex: 1.75" style="width: 10%">
+
+            <button class="btn" onclick="calcularIMC()">Calcular IMC</button>
+
+            <div id="resultado"></div>
+
+    <script>
+        function calcularIMC() {
+            const peso = parseFloat(document.getElementById("peso").value);
+            const altura = parseFloat(document.getElementById("altura").value);
+
+            if (!peso || !altura) {
+                document.getElementById("resultado").innerText = "Por favor, preencha todos os campos.";
+                return;
+            }
+
+            const imc = peso / (altura * altura);
+            let classificacao = "";
+
+            if (imc < 18.5) {
+                classificacao = "Abaixo do peso";
+            } else if (imc < 24.9) {
+                classificacao = "Peso normal";
+            } else if (imc < 29.9) {
+                classificacao = "Sobrepeso";
+            } else if (imc < 34.9) {
+                classificacao = "Obesidade grau I";
+            } else if (imc < 39.9) {
+                classificacao = "Obesidade grau II";
+            } else {
+                classificacao = "Obesidade grau III";
+            }
+
+      document.getElementById("resultado").innerText = `Seu IMC é ${imc.toFixed(2)} – ${classificacao}`;
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+    const dieta = "{{objetivo.dieta}}".trim();
+
+    if (!dieta) return;
+
+    if (dieta === "Sim") {
+      const container = document.getElementById("botao-dieta-container");
+      const botao = document.createElement("a");
+      botao.href = "/dietas";
+      botao.className = "btn";
+      botao.textContent = "Ir para Dietas";
+      container.appendChild(botao);
+    }
+  });
+
+  </script>
+</section>

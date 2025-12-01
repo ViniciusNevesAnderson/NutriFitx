@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/style.css">
+
+<main class="container">
+  <h1>Treinos de {{usuario}}</h1>
+
+  {{#if objetivo}}
+  <section class="box purple">
+    <h2>Treinos do Objetivo: {{objetivo.nome}}</h2>
+
+    {{#if status}}
+      <p><b>Status:</b> {{status}}</p>
+    {{/if}}
+
+    <p><b>Descrição:</b> {{treinosObjetivo.descricao}}</p>
+
+    {{#if treinosObjetivo.frequencia}}
+      <p><b>Frequência:</b> {{treinosObjetivo.frequencia}}</p>
+      <p><b>Duração:</b> {{treinosObjetivo.duracao}}</p>
+      <p><b>Descanso:</b> {{treinosObjetivo.descanso}}</p>
+    {{/if}}
+
+    {{#if treinosObjetivo.intensidade}}
+      <p><b>Intensidade:</b> {{treinosObjetivo.intensidade}}</p>
+    {{/if}}
+
+    <hr>
+
+    {{#if treinosObjetivo}}
+      {{#if treinosObjetivo.dias}}
+        {{#each treinosObjetivo.dias}}
+        <section class="box black">
+          <h3>Treino {{@indexPlusOne}}</h3>
+          <ul>
+            {{#each this}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </section>
+        {{/each}}
+      {{else}}
+        <p>Não há treinos cadastrados para este objetivo.</p>
+      {{/if}}
+    {{else}}
+      <p>Treino ainda não foi configurado.</p>
+    {{/if}}
+
+    {{#if atividades.length}}
+      <hr>
+      <h2>Atividades Extras</h2>
+      {{#each atividades}}
+        <section class="box black">
+          <h3>Atividade Extra – {{this.tipo}}</h3>
+        </section>
+      {{/each}}
+    {{else}}
+      <p>Não há atividades extras cadastradas.</p>
+    {{/if}}
+  </section>
+{{#if (eq objetivo.videos "Sim")}}
+  <div style="text-align: center; margin-top: 30px;">
+    <a href="/videos" class="btn">🎥 Ver vídeos explicativos</a>
+  </div>
+{{/if}}
+
+  {{else}}
+  <section class="box purple">
+    <h2>Você ainda não selecionou um objetivo!</h2>
+  </section>
+  {{/if}}
+</main>

@@ -1,0 +1,40 @@
+<main class="container">
+  <section class="intro">
+    <h1>Bem-vindo ao <span>NutriFitx</span> 🥗</h1>
+    <p>Seu aliado na jornada por uma vida mais saudável, com treinos, dietas e metas personalizadas.</p>
+  </section>
+
+  {{#if user}}
+    <section class="objetivos-box">
+      <p><b>Olá, {{user.usuario}}!</b></p>
+      <p>Continue avançando em seus objetivos.</p>
+      <div class="btn-group">
+        <a href="/objetivos/criar" class="btn">Seus Objetivos</a>
+        {{#if (eq objetivo.dieta "Sim")}}
+          <a href="/dietas" class="btn">Dietas</a>
+        {{/if}}
+        <a href="/treinos" class="btn">Treinos</a>
+        <a href="/historico" class="btn">Histórico</a>
+      </div>
+    </section>
+  {{else}}
+    <section class="objetivos-box">
+      <h2>Comece agora!</h2>
+      <p>Cadastre-se ou faça login para acessar seus planos de treino e alimentação.</p>
+      <div class="btn-group">
+        <a href="/login" class="btn">Fazer Login</a>
+        <a href="/cadastro" class="btn">Criar Conta</a>
+      </div>
+    </section>
+  {{/if}}
+
+  <section class="benefits">
+    <h2>Por que usar o NutriFitx?</h2>
+    <ul>
+      <li><strong>🎯 Metas personalizadas</strong> — Defina seu objetivo e receba planos adaptados.</li>
+      <li><strong>🥦 Dietas equilibradas</strong> — Receitas e cardápios voltados para suas metas.</li>
+      <li><strong>💪 Treinos eficazes</strong> — Exercícios pensados para todos os níveis.</li>
+      <li><strong>📈 Acompanhamento</strong> — Veja seu histórico de progresso e mantenha o foco!</li>
+    </ul>
+  </section>
+</main>

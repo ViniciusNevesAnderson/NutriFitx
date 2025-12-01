@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>NutriFitx</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/png" href="/Imagem1.png">
+</head>
+<body>
+  <header>
+    <a href="/"><img src="/Imagem1.png" alt="Logo" class="logo"></a>
+    <nav>
+      <a href="/objetivos/criar">Objetivo</a>
+      <a href="/treinos">Treinos</a>
+
+      {{#if (eq objetivo.dieta "Sim")}}
+        <a href="/dietas">Dietas</a>
+      {{/if}}
+
+      {{#if (eq objetivo.videos "Sim")}}
+        <a href="/videos">Vídeos</a>
+      {{/if}}
+
+      <a href="/historico">Histórico</a>
+    </nav>
+  </header>
+
+  {{{body}}}
+</body>
+</html>
+

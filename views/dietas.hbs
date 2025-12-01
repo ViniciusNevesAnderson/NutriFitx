@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="/style.css">
+
+<main class="container">
+    <h1>Dieta de {{usuario}}</h1>
+
+    {{#if objetivo}}
+        <section class="box purple">
+            <h2>Dieta do Objetivo: {{objetivo.nome}}</h2>
+            
+            <h3>{{dietaObjetivo.titulo}}</h3>
+    
+            <p>Seu grupo de peso ({{sugestoesMacros.faixa}}) sugere um consumo diário de:</p>
+
+            <div class="macros">
+                <p><b>Proteína Total:</b> <b class="tag green">{{sugestoesMacros.proteina}}</b></p>
+                <p><b>Carboidratos:</b> <b class="tag blue">{{sugestoesMacros.carboidrato}}</b></p>
+            </div>
+
+            <p>Proporção da Refeição: <b>{{dietaObjetivo.foco}}</b></p>
+
+            <hr style="border-color: #a259ff; margin: 15px 0;">
+
+            {{#each dietaObjetivo.refeicoes}}
+                <p><b>{{nome}}:</b> {{{texto}}}</p>
+            {{/each}}
+            
+            <hr style="border-color: #a259ff; margin: 25px 0;">
+
+            <div class="sugestao-visual">
+                <h2>Inspiração para Refeições</h2>
+                
+                <h4>Café da Manhã</h4>
+                <div class="galeria-refeicao">
+                    {{{dietaObjetivo.imagemCafe}}}
+                </div>
+
+                <h4>Almoço / Jantar</h4>
+                <div class="galeria-refeicao">
+                    {{{dietaObjetivo.imagemAlmoco}}}
+                </div>
+                <h4>Lanches</h4>
+                <div class="galeria-refeicao">
+                    {{{dietaObjetivo.imagemLanche}}}
+                </div>
+            </div>
+        </section>
+    {{else}}
+        <section class="box purple">
+            <h2>Você ainda não selecionou um objetivo!</h2>
+        </section>
+    {{/if}}
+
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const objetivoNome = "{{objetivoNome}}".trim();
+
+  const proteinaTag = document.querySelector(".macros .tag.green");
+  const carboTag   = document.querySelector(".macros .tag.blue");
+
+  if (proteinaTag) {
+    const proteinaEl = proteinaTag.parentElement;
+    if (!(objetivoNome === "Ganho de Massa Magra" || objetivoNome === "Controle da Saúde Corporal")) {
+      proteinaEl.style.display = "none";
+    } else {
+      proteinaEl.style.display = "";
+    }
+  }
+
+  if (carboTag) {
+    const carboEl = carboTag.parentElement;
+    if (!(objetivoNome === "Emagrecimento" || objetivoNome === "Controle da Saúde Corporal")) {
+      carboEl.style.display = "none";
+    } else {
+      carboEl.style.display = "";
+    }
+  }
+
+});
+</script>
+
+

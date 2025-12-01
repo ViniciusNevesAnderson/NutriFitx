@@ -1,0 +1,104 @@
+<div class="container">
+  <h1>Personalizar Objetivo</h1>
+
+  <form class="form-personalizar" action="/objetivos/personalizar/salvar" method="POST">
+    <div>
+      <label for="objetivo">Escolha um objetivo:</label>
+      <select name="objetivo" id="objetivo" required>
+        <option value="" disabled selected>Selecione seu objetivo</option>
+        <option value="Emagrecimento" {{#ifEquals objetivo.nome "Emagrecimento"}}selected{{/ifEquals}}>Emagrecimento</option>
+        <option value="Controle da Saúde Corporal" {{#ifEquals objetivo.nome "Controle da Saúde Corporal"}}selected{{/ifEquals}}>Controle da Saúde Corporal</option>
+        <option value="Ganho de Massa Magra" {{#ifEquals objetivo.nome "Ganho de Massa Magra"}}selected{{/ifEquals}}>Ganho de Massa Magra</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="peso">Peso (kg):</label>
+      <input type="number" id="peso" name="peso" value="{{objetivo.peso}}" required>
+    </div>
+
+    <div>
+      <label for="altura">Altura (cm):</label>
+      <input type="number" id="altura" name="altura" value="{{objetivo.altura}}" required>
+    </div>
+
+    <div>
+      <label for="duracao">Duração (semanas):</label>
+      <input type="number" id="duracao" name="duracao" value="{{objetivo.duracao}}" min="1" required>
+    </div>
+
+
+    <div>
+      <label for="atividade">Pratica atividade física:</label>
+      <select id="atividade" name="atividade" required onchange="toggleAtividadeDetalhe(this.value)">
+        <option value="" disabled selected>Selecione</option>
+        <option value="Sim" {{#ifEquals objetivo.atividade "Sim"}}selected{{/ifEquals}}>Sim</option>
+        <option value="Não" {{#ifEquals objetivo.atividade "Não"}}selected{{/ifEquals}}>Não</option>
+      </select>
+    </div>
+
+    <div id="atividade-detalhes">
+      <label for="atividadeTipo">Tipo de atividade:</label>
+      <input type="text" id="atividadeTipo" name="atividadeTipo" value="{{objetivo.atividadeTipo}}">
+      <label for="atividadeFrequencia">Frequência (vezes/semana):</label>
+      <input type="number" id="atividadeFrequencia" name="atividadeFrequencia" min="1" max="5" placeholder="Obs: Você não irá treinar nos dias que faz atividade" value="{{objetivo.atividadeFrequencia}}">
+    </div>
+
+    <div>
+      <label for="semanas" >Quantas vezes por semana deseja treinar?:</label>
+      <input type="number" id="semanas" name="semanas" value="{{objetivo.semanas}}" min="1" max="5" placeholder="Limite de 5x por semana" required>
+    </div>
+
+    <div>
+      <label for="videos">Precisa de vídeos explicativos:</label>
+      <select id="videos" name="videos" required>
+         <option value="" disabled selected>Selecione</option>
+        <option value="Sim" {{#ifEquals objetivo.videos "Sim"}}selected{{/ifEquals}}>Sim</option>
+        <option value="Não" {{#ifEquals objetivo.videos "Não"}}selected{{/ifEquals}}>Não</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="dieta">Deseja incluir dieta?</label>
+      <select id="dieta" name="dieta" required>
+        <option value="" disabled selected>Selecione</option>
+        <option value="Sim" {{#ifEquals objetivo.dieta "Sim"}}selected{{/ifEquals}}>Sim</option>
+        <option value="Não" {{#ifEquals objetivo.dieta "Não"}}selected{{/ifEquals}}>Não</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-salvar">Salvar Objetivo</button>
+  </form>
+
+</div>
+
+<script>
+  function toggleAtividadeDetalhe(value) {
+    const detalhes = document.getElementById('atividade-detalhes');
+    detalhes.style.display = value === 'Sim' ? 'block' : 'none';
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    toggleAtividadeDetalhe(document.getElementById('atividade').value);
+  });
+
+  const atividadeInput = document.getElementById('atividadeFrequencia');
+  const semanasInput = document.getElementById('semanas');
+
+  function validarSoma() {
+    const atividade = parseInt(atividadeInput.value) || 0;
+    const semanas = parseInt(semanasInput.value) || 0;
+
+    if (atividade + semanas > 7) {
+      alert("A soma de atividades e treinos não pode ultrapassar 7 dias na semana!");
+      if (document.activeElement === atividadeInput) {
+        atividadeInput.value = 7 - semanas;
+      } else {
+        semanasInput.value = 7 - atividade;
+      }
+    }
+  }
+
+  atividadeInput.addEventListener('input', validarSoma);
+  semanasInput.addEventListener('input', validarSoma);
+</script>
