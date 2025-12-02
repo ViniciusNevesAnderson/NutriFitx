@@ -87,20 +87,20 @@ const dietasController = {
                     case "Emagrecimento":
                         dietaObjetivo = {
                             imagemAlmoco: `
-                                <figure><img src="/imgs/Imagem6.png" alt=""><figcaption>Arroz, feijão, coxa de frango assada, beterraba e polenta com queijo</figcaption></figure>
-                                <figure><img src="/imgs/Imagem17.png" alt=""><figcaption>Frango grelhado, vegetais e salada</figcaption></figure>
-                                <figure><img src="/imgs/Imagem20.png" alt=""><figcaption>Peixe grelhado, salada, vegetais e arrox integral</figcaption></figure>
-                                <figure><img src="/imgs/Imagem19.png" alt=""><figcaption>Frango, abobrinha, arroz e salada</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem6.png" alt=""><figcaption>Arroz, feijão, coxa de frango assada, beterraba e polenta com queijo</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem17.png" alt=""><figcaption>Frango grelhado, vegetais e salada</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem20.png" alt=""><figcaption>Peixe grelhado, salada, vegetais e arroz integral</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem19.png" alt=""><figcaption>Frango, abobrinha, arroz e salada</figcaption></figure>
                             `,
                             imagemLanche: `
-                                <figure><img src="/imgs/Imagem12.png" alt=""><figcaption>Castanhas</figcaption></figure>
-                                <figure><img src="/imgs/Imagem11.png" alt=""><figcaption>Iogurte com frutas</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem12.png" alt=""><figcaption>Castanhas</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem11.png" alt=""><figcaption>Iogurte com frutas</figcaption></figure>
                             `,
                             imagemCafe: `
-                                <figure><img src="/imgs/Imagem2.png" alt=""><figcaption>Café com leite, bolo de milho e melão</figcaption></figure>
-                                <figure><img src="/imgs/Imagem14.png" alt=""><figcaption>Torrada, Abacate e Ovo</figcaption></figure>
-                                <figure><img src="/imgs/Imagem4.png" alt=""><figcaption>Café, pão integral com queijo e ameixa</figcaption></figure>
-                                <figure><img src="/imgs/Imagem16.png" alt=""><figcaption>Panquecas com frutas</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem2.png" alt=""><figcaption>Café com leite, bolo de milho e melão</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem14.png" alt=""><figcaption>Torrada, Abacate e Ovo</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem4.png" alt=""><figcaption>Café, pão integral com queijo e ameixa</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem16.png" alt=""><figcaption>Panquecas com frutas</figcaption></figure>
                             `,
 
 
@@ -126,19 +126,19 @@ const dietasController = {
                     case "Ganho de Massa Magra":
                         dietaObjetivo = {
                             imagemAlmoco: `
-                                <figure><img src="/imgs/Imagem7.png" alt=""><figcaption>Arroz, feijão, omelete e jiló refogado</figcaption></figure>
-                                <figure><img src="/imgs/Imagem23.png" alt=""><figcaption>Macarrão, legumes e atum</figcaption></figure>
-                                <figure><img src="/imgs/Imagem27.png" alt=""><figcaption>Arroz, feijão, carne moída e legumes</figcaption></figure>
-                                <figure><img src="/imgs/Imagem28.png" alt=""><figcaption>Arroz, feijão, frango grelhado e batata doce</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem7.png" alt=""><figcaption>Arroz, feijão, omelete e jiló refogado</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem23.png" alt=""><figcaption>Macarrão, legumes e atum</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem27.png" alt=""><figcaption>Arroz, feijão, carne moída e legumes</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem28.png" alt=""><figcaption>Arroz, feijão, frango grelhado e batata doce</figcaption></figure>
                             `,
                             imagemLanche: `
-                                <figure><img src="/imgs/Imagem21.png" alt=""><figcaption>Whey com frutas</figcaption></figure>
-                                <figure><img src="/imgs/Imagem13.png" alt=""><figcaption>Iogurte com frutas</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem21.png" alt=""><figcaption>Whey com frutas</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem13.png" alt=""><figcaption>Iogurte com frutas</figcaption></figure>
                             `,
                             imagemCafe: `
-                                <figure><img src="/imgs/Imagem3.png" alt=""><figcaption>Leite, cuscuz, ovo de galinha e banana</figcaption></figure>
-                                <figure><img src="/imgs/Imagem25.png" alt=""><figcaption>Pão integral, banana, aveia e pasta de amendoim</figcaption></figure>
-                                <figure><img src="/imgs/Imagem26.png" alt=""><figcaption>Barra de cereal com castanhas/nozes</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem3.png" alt=""><figcaption>Leite, cuscuz, ovo de galinha e banana</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem25.png" alt=""><figcaption>Pão integral, banana, aveia e pasta de amendoim</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem26.png" alt=""><figcaption>Barra de cereal com castanhas/nozes</figcaption></figure>
                             `,
 
                             titulo: "Prioridade: Superávit Calórico e Alta Proteína",
@@ -163,19 +163,19 @@ const dietasController = {
                     case "Controle da Saúde Corporal":
                         dietaObjetivo = {
                             imagemAlmoco: `
-                                <figure><img src="/imgs/Imagem8.png" alt=""><figcaption>Feijoada, arroz, vinagrete de cebola e tomate, farofa, couve refogada e laranja</figcaption></figure>
-                                <figure><img src="/imgs/Imagem9.png" alt=""><figcaption>Salada de tomate, arroz, feijão, bife grelhado e salada de frutas</figcaption></figure>
-                                <figure><img src="/imgs/Imagem18.png" alt=""><figcaption>Frango grelhado, salada, arroz, feijao e vegetais</figcaption></figure>
-                                <figure><img src="/imgs/Imagem24.png" alt=""><figcaption>Peixe grelhado, legumes e arroz</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem8.png" alt=""><figcaption>Feijoada, arroz, vinagrete, farofa, couve e laranja</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem9.png" alt=""><figcaption>Salada, arroz, feijão, bife grelhado e salada de frutas</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem18.png" alt=""><figcaption>Frango grelhado, salada, arroz, feijão e vegetais</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem24.png" alt=""><figcaption>Peixe grelhado, legumes e arroz</figcaption></figure>
                             `,
                             imagemLanche: `
-                                <figure><img src="/imgs/Imagem10.png" alt=""><figcaption>Salada de frutas</figcaption></figure>
-                                <figure><img src="/imgs/Imagem12.png" alt=""><figcaption>Castanhas</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem10.png" alt=""><figcaption>Salada de frutas</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem12.png" alt=""><figcaption>Castanhas</figcaption></figure>
                             `,
                             imagemCafe: `
-                                <figure><img src="/imgs/Imagem15.png" alt=""><figcaption>Iogurte, frutas, aveia e nozes</figcaption></figure>
-                                <figure><img src="/imgs/Imagem5.png" alt=""><figcaption>Café com leite, tapioca e banana</figcaption></figure>
-                                <figure><img src="/imgs/Imagem22.png" alt=""><figcaption>Pão integral com ovo mexido</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem15.png" alt=""><figcaption>Iogurte, frutas, aveia e nozes</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem5.png" alt=""><figcaption>Café com leite, tapioca e banana</figcaption></figure>
+                                <figure><img src="/public/imgs/Imagem22.png" alt=""><figcaption>Pão integral com ovo mexido</figcaption></figure>
                             `,
 
                             titulo: "Prioridade: Equilíbrio e Qualidade Nutricional",
