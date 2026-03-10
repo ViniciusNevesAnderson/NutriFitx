@@ -1,12 +1,13 @@
-# Web Dinâmico - Restaurante
+# Projeto Integrador - NutriFitx
 
-Este é o repositório do projeto **Restaurante**, desenvolvido com **Node.js** e utilizando a arquitetura **MVC (Model-View-Controller)**.
+Este é o repositório do projeto **NutriFitx**, desenvolvido com **Node.js** e utilizando a arquitetura **MVC (Model-View-Controller)**.
 
 ---
 
 ## Participantes
 - Theo Sudo Barrence
 - Vinicius Neves Anderson
+- Maria Eduarda Longuim
 
 ---
 
